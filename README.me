@@ -1,0 +1,184 @@
+ # Linkfy — Encurtador de URL - V1.0
+
+Linkfy é uma aplicação web para **encurtar URLs longas**, gerando links curtos e fáceis de compartilhar.
+O projeto foi desenvolvido utilizando **Python com Flask**, **SQLite**, **HTML**, **CSS** e **JavaScript**.
+
+A aplicação recebe uma URL longa, gera um **código aleatório único**, armazena o link no banco de dados e cria uma **URL curta que redireciona para o endereço original**.
+
+---
+
+# Demonstração das funcionalidades
+
+Abaixo está uma demonstração da interface do Linkfy, mostrando o processo de encurtamento de uma URL.
+
+<p align="center">
+  <img src="assets/demo1.png" width="800" alt="Tela inicial do Linkfy">
+</p>
+
+<p align="center">
+  <img src="assets/demo2.png" width="800" alt="URL encurtada gerada">
+</p>
+
+Exemplo de uso:
+
+URL original:
+
+https://example.com/my-very-long-link-example
+
+URL encurtada:
+
+http://localhost:5000/Ab3XkP
+
+---
+
+# Funcionalidades
+
+* Encurtamento de URLs
+* Geração automática de códigos curtos
+* Armazenamento das URLs em banco de dados SQLite
+* Interface simples e intuitiva
+* Botão para copiar a URL encurtada
+* Layout responsivo com CSS
+
+---
+
+# Tecnologias utilizadas
+
+Backend:
+
+* Python
+* Flask
+* SQLite
+
+Frontend:
+
+* HTML5
+* CSS3
+* JavaScript
+
+Ferramentas:
+
+* Git
+* GitHub
+
+---
+
+# Estrutura do projeto
+
+linkfy/
+│
+├── app.py
+├── urls.db
+├── requirements.txt
+├── README.md
+│
+├── templates/
+│   └── shortener.html
+│
+├── static/
+│   ├── shortener.css
+│   └── img/
+│
+└── assets/
+    ├── demo1.png
+    └── demo2.png
+
+---
+
+# Como executar o projeto
+
+## Clonar o repositório
+
+https://github.com/BrunoSlvCh/Linkfy-Encurtador-de-URL---V1.0
+
+Entre na pasta:
+
+```bash
+cd linkfy
+```
+
+---
+
+## Instalar dependências
+
+```bash
+pip install flask
+```
+
+ou utilizando:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 4Executar a aplicação
+
+```bash
+python app.py
+```
+
+O servidor será iniciado em:
+
+```
+http://localhost:5000
+```
+
+---
+
+# O projeto funciona da seguinte forma:
+
+1. O usuário insere uma URL no formulário.
+2. O backend gera um código aleatório utilizando letras e números.
+3. A URL original e o código gerado são armazenados no banco SQLite.
+4. Uma URL curta é criada.
+5. Quando a URL curta é acessada, o Flask consulta o banco e redireciona para a URL original.
+
+Fluxo do progrma de forma simplificada:
+
+Usuário → Envia URL → Flask → SQLite → Gera código → Retorna URL curta → Redirecionamento
+
+---
+
+# Estrutura do banco de dados
+
+Tabela: `urls`
+
+| Campo        | Tipo    | Descrição               |
+| ------------ | ------- | ----------------------- |
+| id           | INTEGER | Identificador único     |
+| original_url | TEXT    | URL original inserida   |
+| short_code   | TEXT    | Código da URL encurtada |
+
+---
+
+# Melhorias futuras para próximas versões
+
+Algumas funcionalidades planejadas para futuras versões:
+
+* Contador de cliques por link
+* Histórico de URLs criadas
+* URLs personalizadas
+* Sistema de login de usuários
+* Painel administrativo
+* API para encurtamento de links
+* Deploy em servidor público
+
+---
+
+# Autor
+
+Bruno da Silva Chagas
+
+GitHub:
+https://github.com/BrunoSlvCh
+
+LinkedIn:
+https://www.linkedin.com/in/bruno-da-silva-chagas-5ab7bb377/
+
+---
+
+# Licença do projeto
+
+Este projeto é de código aberto e pode ser utilizado para fins de estudo e aprendizado.

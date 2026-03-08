@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="{{ url_for('static', filename='shortener.css') }}">
+    <meta name="description" content="Site para encurtar links">
+    <meta name="keywords"
+        content="encurtador de link, encurtar link, diminuir link, tamanho do link, reduzir link, link menor, link pequeno, encurtador url, diminuit url, encurtar url">
+    <meta name="author" content="Bruno da Silva Chagas">
+
+    <link rel="icon" href="/static/img/logo-principal/linkfy_icon_l.png">
+
+    <!--Fontes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yuji+Boku&display=swap"
+        rel="stylesheet">
+
+    <title>Linkfy - Encurtador de URL</title>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <img class="logo-principal" src="/static/img/logo-principal/linkfy_logo_cropped.png" alt="logo da marca Linkfi">
+
+        <h1>Encurtador de URL</h1>
+
+        <form action="/encurtar" method="POST" onsubmit="loadingBotao()">
+
+            <label for="url-1">Insira a URL que deseja encurtar:</label>
+
+            <input id="url-1" type="text" name="url" placeholder="https://example.com/my-long-url" required>
+
+            <label for="url-2">URL encurtada:</label>
+
+            <div class="copy-container" id="resultado">
+
+                <input id="url-2" type="text" value="{{short_url}}" name="Modified URL" required readonly>
+
+                <button class="copy-btn" title="Copiar URL" onclick="copiarURL()">
+                    <img src="/static/img/ícones/copy.png" alt="Copiar">
+                </button>
+
+            </div>
+
+            <button type="submit" id="btn-encurtar" title="Encurtar URL" class="btn-encurtar">Encurtar</button>
+
+        </form>
+
+    </div>
+
+    <footer>
+
+        <p class="desenvolvidoPor">Desenvolvido por:</p>
+        <div class="imagens-rodape">
+            <aside class="criador">
+                <img class="logo-bruno" src="/static/img/imgens-footer/logo-bruno.png" alt="logo do criador do site"
+                    title="Bruno da Silva Chagas">
+            </aside>
+
+            <div class="redes-sociais">
+
+                <div class="linkedin-btn">
+                    <a href="https://www.linkedin.com/in/bruno-da-silva-chagas-5ab7bb377/" target="_blank">
+                        <img class="linkedin" src="/static/img/imgens-footer/linkedin.png" alt="linkedin do criador do site"
+                            title="linkedin do autor"></a>
+                </div>
+
+                <div class="github-btn">
+                    <a href="https://github.com/BrunoSlvCh" target="_blank">
+                        <img class="github" src="/static/img/imgens-footer/github.png" alt="github do criador do site"
+                            title="Github do Autor"></a>
+                </div>
+
+            </div>
+    </footer>
+
+    <script>
+
+        function loadingBotao() {
+
+            let botao = document.getElementById("btn-encurtar");
+
+            botao.innerHTML = "Encurtando...";
+            botao.disabled = true;
+
+        }
+
+        function mostrarResultado() {
+            let resultado = document.getElementById("resultado");
+            resultado.classList.add("mostrar");
+        }
+
+        mostrarResultado();
+
+        function copiarURL() {
+
+            let campo = document.getElementById("url-2");
+
+            campo.select();
+            campo.setSelectionRange(0, 99999);
+
+            navigator.clipboard.writeText(campo.value);
+
+            alert("URL copiada!");
+        }
+    </script>
+
+</body>
+
+</html>
